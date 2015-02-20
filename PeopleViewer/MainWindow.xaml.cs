@@ -15,6 +15,28 @@ namespace PeopleViewer
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
+            Person selectedPerson = PersonListBox.SelectedItem as Person;
+
+            var repository = new PeopleRepository();
+            repository.GetPeopleCompleted +=
+                (repoSender, repoArgs) =>
+                {
+                    PersonListBox.ItemsSource = repoArgs.Result;
+                    if (selectedPerson != null)
+                        foreach (Person person in PersonListBox.Items)
+                            if (person.LastName == selectedPerson.LastName &&
+                                person.FirstName == selectedPerson.FirstName)
+                            {
+                                PersonListBox.SelectedItem = person;
+                            }
+                };
+            repository.GetPeopleAsync();
+            //selectedPerson = null;
         }
+
+        //void repository_GetPeopleCompleted(object sender, GetPeopleCompletedEventArgs e)
+        //{
+        //    PersonListBox.ItemsSource = e.Result;
+        //}
     }
 }
