@@ -23,12 +23,11 @@ namespace PeopleViewer
                 {
                     PersonListBox.ItemsSource = AddSort(AddFilters(repoArgs.Result));
                     if (selectedPerson != null)
-                        foreach (Person person in PersonListBox.Items)
-                            if (person.LastName == selectedPerson.LastName &&
-                                person.FirstName == selectedPerson.FirstName)
-                            {
-                                PersonListBox.SelectedItem = person;
-                            }
+                        PersonListBox.SelectedItem =
+                            PersonListBox.Items.OfType<Person>().SingleOrDefault(
+                                p => p.FirstName == selectedPerson.FirstName &&
+                                    p.LastName == selectedPerson.LastName
+                            );
                 };
             repository.GetPeopleAsync();
             //selectedPerson = null;
