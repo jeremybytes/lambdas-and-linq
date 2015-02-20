@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer", "PeopleViewer\PeopleViewer.csproj", "{4263AE22-9451-4FCF-B0DD-44295DC5D839}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Library", "PeopleViewer.Library\PeopleViewer.Library.csproj", "{BC02DC33-66D4-4E2E-B9C8-94A9A18D4A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.MVVM", "PeopleViewer.MVVM\PeopleViewer.MVVM.csproj", "{89A692C0-C1BB-45EC-B3E5-83818B3A77A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4263AE22-9451-4FCF-B0DD-44295DC5D839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4263AE22-9451-4FCF-B0DD-44295DC5D839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4263AE22-9451-4FCF-B0DD-44295DC5D839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4263AE22-9451-4FCF-B0DD-44295DC5D839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC02DC33-66D4-4E2E-B9C8-94A9A18D4A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC02DC33-66D4-4E2E-B9C8-94A9A18D4A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC02DC33-66D4-4E2E-B9C8-94A9A18D4A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC02DC33-66D4-4E2E-B9C8-94A9A18D4A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A692C0-C1BB-45EC-B3E5-83818B3A77A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A692C0-C1BB-45EC-B3E5-83818B3A77A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A692C0-C1BB-45EC-B3E5-83818B3A77A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A692C0-C1BB-45EC-B3E5-83818B3A77A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

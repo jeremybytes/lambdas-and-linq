@@ -1,0 +1,103 @@
+﻿<Window x:Class="PeopleViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="550" Width="805">
+    <Border x:Name="LayoutRoot" Padding="5"
+            BorderBrush="{StaticResource ApplicationForeground}" BorderThickness="2" 
+            Background="{StaticResource ApplicationBackground}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Selected Item Panel -->
+            <Border Grid.Column="0" Grid.Row="0" Margin="5" Padding="10"
+                    BorderBrush="{StaticResource ApplicationTextForeground}" BorderThickness="1">
+                <StackPanel x:Name="DetailPanel" 
+                            DataContext="{Binding ElementName=PersonListBox, Path=SelectedItem}">
+                    <TextBlock Text="Selected Item" Style="{StaticResource HeaderText}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FirstName}"
+                               FontSize="20" FontWeight="Bold" Margin="10,0,5,0"/>
+                        <TextBlock Text="{Binding LastName}"
+                               FontSize="20" FontWeight="Bold"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Filter Panel -->
+            <Border Grid.Column="0" Grid.Row="1" Margin="5" Padding="10"
+                    BorderBrush="{StaticResource ApplicationTextForeground}" BorderThickness="1">
+                <StackPanel Margin="0,-1,0,1">
+                    <TextBlock Text="Date Filter" Style="{StaticResource HeaderText}" />
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="DateFilterCheckBox" VerticalAlignment="Center" 
+                                  IsChecked="{Binding DateFilterChecked}"/>
+                        <TextBlock Text="Between " FontWeight="Normal" VerticalAlignment="Center"/>
+                        <TextBox x:Name="StartDateTextBox" MinWidth="45"
+                                 Text="{Binding DateFilterStartYear}"/>
+                        <TextBlock Text=" and " FontWeight="Normal" VerticalAlignment="Center"/>
+                        <TextBox x:Name="EndDateTextBox" MinWidth="45" 
+                                 Text="{Binding DateFilterEndYear}"/>
+                    </StackPanel>
+                    <TextBlock Text="Name Filter" Style="{StaticResource HeaderText}" Margin="0,20,0,0" />
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="NameFilterCheckBox" VerticalAlignment="Center"
+                                  IsChecked="{Binding NameFilterChecked}"/>
+                        <TextBlock Text="First Name " FontWeight="Normal" VerticalAlignment="Center"/>
+                        <TextBox x:Name="NameTextBox" MinWidth="110" 
+                                 Text="{Binding NameFilterValue}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sort Panel -->
+            <Border Grid.Column="0" Grid.Row="2" Margin="5" Padding="10"
+                    BorderBrush="{StaticResource ApplicationTextForeground}" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Sort Order: " Style="{StaticResource HeaderText}" />
+                    <RadioButton x:Name="LastNameSortButton" Content="Last Name" 
+                                 IsChecked="{Binding LastNameSortChecked}"/>
+                    <RadioButton x:Name="FirstNameSortButton" Content="First Name" 
+                                 IsChecked="{Binding FirstNameSortChecked}"/>
+                    <RadioButton x:Name="DateSortButton" Content="Start Date"
+                                 IsChecked="{Binding StartDateSortChecked}"/>
+                    <RadioButton x:Name="RatingSortButton" Content="Rating" 
+                                 IsChecked="{Binding RatingSortChecked}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Fetch Button -->
+            <Button x:Name="RefreshButton"
+                    Grid.Column="0" Grid.Row="4"
+                    FontSize="16" Padding="7,3" Margin="5"
+                    Content="Refresh"
+                    Style="{StaticResource GoButtonStyle}"
+                    Click="RefreshButton_Click"/>
+
+            <!-- List Box -->
+            <ListBox x:Name="PersonListBox"
+                     Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
+                     Margin="5"
+                     BorderBrush="DarkSlateGray" BorderThickness="1"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                     ItemTemplate="{StaticResource PersonListTemplate}"
+                     ItemsSource="{Binding People}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+
+        </Grid>
+    </Border>
+</Window>
