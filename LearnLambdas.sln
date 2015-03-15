@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinSyntax", "JoinSyntax\Jo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BONUS", "BONUS", "{B6A812B9-9BC7-4B46-84EB-083544F25C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapturedVariables", "CapturedVariables\CapturedVariables.csproj", "{9FFE065F-0390-499C-94AA-78DBE79CD73E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,11 +37,16 @@ Global
 		{6537FF4E-39A0-453F-BBA0-C4376BA77D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6537FF4E-39A0-453F-BBA0-C4376BA77D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6537FF4E-39A0-453F-BBA0-C4376BA77D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FFE065F-0390-499C-94AA-78DBE79CD73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FFE065F-0390-499C-94AA-78DBE79CD73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FFE065F-0390-499C-94AA-78DBE79CD73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FFE065F-0390-499C-94AA-78DBE79CD73E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6537FF4E-39A0-453F-BBA0-C4376BA77D93} = {B6A812B9-9BC7-4B46-84EB-083544F25C13}
+		{9FFE065F-0390-499C-94AA-78DBE79CD73E} = {B6A812B9-9BC7-4B46-84EB-083544F25C13}
 	EndGlobalSection
 EndGlobal
