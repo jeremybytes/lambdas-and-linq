@@ -4,17 +4,23 @@ using System.Linq;
 
 namespace JoinSyntax
 {
-    public class CustomerOrderDates
+    public class CustomerOrderDate
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateTime OrderDate { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0:yyyy/MM/dd}: {1} {2}",
+                    OrderDate, FirstName, LastName);
+        }
     }
 
-    public static class OrderReports
+    public static class QueryReports
     {
-        public static IEnumerable<CustomerOrderDates>
-            OrderDatesByCustomer1(DateTime startDate, DateTime endDate)
+        public static IEnumerable<CustomerOrderDate>
+            OrderDatesByCustomer(DateTime startDate, DateTime endDate)
         {
             var people = People.GetPeople();
             var orders = Orders.GetOrders();
@@ -24,7 +30,7 @@ namespace JoinSyntax
                              where o.OrderDate >= startDate &&
                                    o.OrderDate <= endDate
                              orderby o.OrderDate
-                             select new CustomerOrderDates
+                             select new CustomerOrderDate
                                {
                                    LastName = p.LastName,
                                    FirstName = p.FirstName,
@@ -33,9 +39,12 @@ namespace JoinSyntax
 
             return orderDates;
         }
+    }
 
-        public static IEnumerable<CustomerOrderDates>
-            OrderDatesByCustomer2(DateTime startDate, DateTime endDate)
+    public static class FluentReports
+    {
+        public static IEnumerable<CustomerOrderDate>
+            OrderDatesByCustomer(DateTime startDate, DateTime endDate)
         {
             var people = People.GetPeople();
             var orders = Orders.GetOrders();
@@ -44,12 +53,12 @@ namespace JoinSyntax
                     orders,
                     p => p.Id,
                     o => o.CustomerId,
-                    (p, o) => new CustomerOrderDates
-                                {
-                                    LastName = p.LastName,
-                                    FirstName = p.FirstName,
-                                    OrderDate = o.OrderDate
-                                })
+                    (p, o) => new CustomerOrderDate
+                    {
+                        LastName = p.LastName,
+                        FirstName = p.FirstName,
+                        OrderDate = o.OrderDate
+                    })
                 .Where(r => r.OrderDate >= startDate && r.OrderDate <= endDate)
                 .OrderBy(r => r.OrderDate);
 
